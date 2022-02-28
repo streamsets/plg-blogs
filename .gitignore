@@ -1,1 +1,4 @@
 .DS_Store
+/target/
+/email-validator/.vscode/
+/email-validator/target/
