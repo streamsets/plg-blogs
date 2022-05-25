@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": "tx_snowflake"
+    },
+    {
+      "path": "email-validator"
+    },
+    {
+      "path": "postgres_cdc"
+    },
+    {
+      "path": "mysql_cdc"
+    },
+    {
+      "path": "drift_series"
+    },
+    {
+      "name": "tx-snowflake-functions",
+      "path": "tx-snowflake-functions"
+    },
+    {
+      "path": "change-tracking"
+    }
+  ],
+  "settings": {
+    "java.configuration.updateBuildConfiguration": "automatic"
+  }
+}
