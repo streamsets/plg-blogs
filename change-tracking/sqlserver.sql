@@ -1,0 +1,21 @@
+CREATE TABLE Sales (
+	InvoiceId int NOT NULL,
+	Store varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	Department varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	SSN varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CustomerName varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	Gender varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	Address varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	City varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	State varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	PostalCode int NULL,
+	PaymentType varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	CardNumber varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	Quantity int NULL,
+	ProductPrice numeric(38,2) NULL,
+	Total numeric(38,2) NULL,
+	Product varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	SaleDate date NULL,
+	SaleTime time(0) NULL,
+	CONSTRAINT InvoiceId_PK PRIMARY KEY (InvoiceId)
+);
