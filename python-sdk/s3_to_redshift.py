@@ -88,7 +88,7 @@ destination.set_attributes(default_operation='INSERT',
 
 no_more_data_finisher = pipeline_builder.add_stage('Pipeline Finisher Executor')
 
-"BUILD/PUBLISH YOUR PIPEINE"
+"""BUILD/PUBLISH YOUR PIPEINE"""
 origin >> destination
 origin >= no_more_data_finisher
 pipeline = pipeline_builder.build('SDK pipeline')
