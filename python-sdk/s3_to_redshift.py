@@ -7,7 +7,7 @@ config = {
     'credential-id': 'your-credential-id',
     'token': 'your-token',
 
-    # aws
+    # aws s3
     'aws-access-key': 'your-access-key',
     'aws-secret-access-key': 'your-secret-access-key',
 
