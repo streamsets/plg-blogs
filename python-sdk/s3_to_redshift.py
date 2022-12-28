@@ -67,7 +67,7 @@ connection.connection_definition.configuration['awsConfig.awsAccessKeyId'] = con
 connection.connection_definition.configuration['awsConfig.awsSecretAccessKey'] = config.get('aws-secret-access-key')
 sch.add_connection(connection)
 
-"""BUILD AND CONFIGURE THE STAGES WITHIN YOUR PIPELINE"""
+"""SELECT AND CONFIGURE THE STAGES WITHIN YOUR PIPELINE"""
 pipeline_builder = sch.get_pipeline_builder(engine_type='data_collector', engine_id=sdc.id)
 origin = pipeline_builder.add_stage('Amazon S3', type='origin')
 origin.use_connection(connection)
@@ -88,7 +88,7 @@ destination.set_attributes(default_operation='INSERT',
 
 no_more_data_finisher = pipeline_builder.add_stage('Pipeline Finisher Executor')
 
-"CREATE/PUBLISH YOUR PIPEINE"
+"BUILD/PUBLISH YOUR PIPEINE"
 origin >> destination
 origin >= no_more_data_finisher
 pipeline = pipeline_builder.build('SDK pipeline')
