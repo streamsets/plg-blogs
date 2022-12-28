@@ -7,7 +7,7 @@ config = {
     'credential-id': 'your-credential-id',
     'token': 'your-token',
 
-    # aws s3
+    # aws S3
     'aws-access-key': 'your-access-key',
     'aws-secret-access-key': 'your-secret-access-key',
 
@@ -57,7 +57,7 @@ os.system(install_script)
 """SET UP YOUR S3 CONNECTION"""
 # identify data collector
 sdc = next(eng for eng in sch.data_collectors if eng.deployment_id == deployment.deployment_id)
-#configure your connection
+# configure your connection
 connection_builder = sch.get_connection_builder()
 connection = connection_builder.build(title='s3-connection',
                                       connection_type='STREAMSETS_AWS_S3',
