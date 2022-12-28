@@ -44,10 +44,11 @@ sch.add_deployment(deployment)
 sch.start_deployment(deployment)
 # add sample stage libs
 deployment.engine_configuration.stage_libs = ['dataformats', 'basic', 'dev', 'jdbc', 'aws']
-# update deployment with stage libs
+# update deployment with stage libraries
 sch.update_deployment(deployment)
 
 """START YOUR ENGINE"""
+# retrieves install script
 install_script = sch.get_self_managed_deployment_install_script(deployment, install_mechanism="BACKGROUND")
 # prints install script
 print(install_script)
@@ -71,8 +72,8 @@ sch.add_connection(connection)
 pipeline_builder = sch.get_pipeline_builder(engine_type='data_collector', engine_id=sdc.id)
 origin = pipeline_builder.add_stage('Amazon S3', type='origin')
 origin.use_connection(connection)
-origin.set_attributes(bucket='pythonsdk', # this should be thename of your S3 bucket
-                      prefix_pattern='*.csv', # this is be whatever your file type is
+origin.set_attributes(bucket='pythonsdk', # this should be the name of your S3 bucket
+                      prefix_pattern='*.csv', # this will be whatever your file type is
                       data_format='DELIMITED', 
                       header_line='WITH_HEADER', 
                       stage_on_record_error='TO_ERROR')
