@@ -12,6 +12,7 @@ config = {
     'aws-secret-access-key': 'your-secret-access-key',
 
     # redshift
+    'redshift-jdbc-driver': open('your-redshift-jdbc-jar-file', 'rb'),
     'jdbc-connection-string': 'your-jdbc-connection-string',
     'redshift-username': 'your-username',
     'redshift-password': 'your-password'
@@ -54,10 +55,13 @@ install_script = sch.get_self_managed_deployment_install_script(deployment, inst
 print(install_script)
 # deploys engine
 os.system(install_script)
-
-"""SET UP YOUR S3 CONNECTION"""
 # identify data collector
 sdc = next(eng for eng in sch.data_collectors if eng.deployment_id == deployment.deployment_id)
+# upload jdbc driver and restart engine
+sdc.add_external_libraries('jdbc', config.get('redshift-jdbc-driver'))
+sch.restart_engines(sdc)
+
+"""SET UP YOUR S3 CONNECTION"""
 # configure your connection
 connection_builder = sch.get_connection_builder()
 connection = connection_builder.build(title='s3-connection',
