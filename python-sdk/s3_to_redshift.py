@@ -60,6 +60,10 @@ sdc = next(eng for eng in sch.data_collectors if eng.deployment_id == deployment
 sdc.add_external_libraries('jdbc', open('redshift-jdbc42-2.1.0.9.jar', 'rb'))
 sch.restart_engines(sdc)
 
+# wait 5 min for engine to restart after driver is uploaded
+import time
+time.sleep(300.125154)
+
 """SET UP YOUR S3 CONNECTION"""
 # configure your connection
 connection_builder = sch.get_connection_builder()
