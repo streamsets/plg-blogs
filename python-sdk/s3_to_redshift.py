@@ -12,7 +12,6 @@ config = {
     'aws-secret-access-key': 'your-secret-access-key',
 
     # redshift
-    'redshift-jdbc-driver': open('your-redshift-jdbc-jar-file', 'rb'),
     'jdbc-connection-string': 'your-jdbc-connection-string',
     'redshift-username': 'your-username',
     'redshift-password': 'your-password'
@@ -58,7 +57,7 @@ os.system(install_script)
 # identify data collector
 sdc = next(eng for eng in sch.data_collectors if eng.deployment_id == deployment.deployment_id)
 # upload jdbc driver and restart engine
-sdc.add_external_libraries('jdbc', config.get('redshift-jdbc-driver'))
+sdc.add_external_libraries('jdbc', open('redshift-jdbc42-2.1.0.9.jar', 'rb'))
 sch.restart_engines(sdc)
 
 """SET UP YOUR S3 CONNECTION"""
