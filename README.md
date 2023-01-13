@@ -25,3 +25,6 @@ The two pipelines in this folder utilize the Shared Dataset from Snowflake **Sno
 1. CustOrd: Is an example of a Data Warehouse job that does some joining, filtering etc of the data in your Snowflake environment
 2. JSONWeather: Shows you how to to utilize the JSON Parser processor with in your pipeline with both JSON Objects and Array of Objects in your JSON.
 
+## python-sdk
+
+Our python code does not constitute a "Derivative work" under the license (See paragraph 4d: https://www.apache.org/licenses/LICENSE-2.0). The python code is NOT provided under any open source license (including, without limitation, Apache 2.0), and the SDK is the property of StreamSets, Inc. 
