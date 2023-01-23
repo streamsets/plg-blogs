@@ -46,7 +46,7 @@ sch.start_deployment(deployment)
 deployment.engine_configuration.stage_libs = ['dataformats', 'basic', 'dev', 'jdbc', 'aws']
 # add JDBC redshift driver
 deployment.engine_configuration.external_resource_source = 'externalResources.zip'
-# update deployment with stage libraries
+# update deployment with libraries
 sch.update_deployment(deployment)
 
 """START YOUR ENGINE"""
