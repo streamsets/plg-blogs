@@ -7,6 +7,9 @@ config = {
     'credential-id': 'your-credential-id',
     'token': 'your-token',
 
+    # absolute path to driver file
+    'external-resources-path': 'absolute-path-to-external-resources',
+
     # aws S3
     'aws-access-key': 'your-access-key',
     'aws-secret-access-key': 'your-secret-access-key',
@@ -45,7 +48,7 @@ sch.start_deployment(deployment)
 # add sample stage libs
 deployment.engine_configuration.stage_libs = ['dataformats', 'basic', 'dev', 'jdbc', 'aws']
 # add JDBC redshift driver
-deployment.engine_configuration.external_resource_source = 'externalResources.zip'
+deployment.engine_configuration.external_resource_source = config.get('external-resources-path')
 # update deployment with libraries
 sch.update_deployment(deployment)
 
@@ -82,7 +85,7 @@ origin.set_attributes(bucket='pythonsdk', # this should be the name of your S3 b
 
 destination = pipeline_builder.add_stage('JDBC Producer')
 destination.set_attributes(default_operation='INSERT', 
-                           table_name='netflix-titles', # this should be the name of your destination table in redshift
+                           table_name='netflix_titles', # this should be the name of your destination table in redshift
                            schema_name='public', 
                            field_to_column_mapping=None, 
                            jdbc_connection_string=config.get('jdbc-connection-string'), 
